@@ -22,10 +22,11 @@ namespace Scramble
             //      var baseMap = new Bitmap(GeneratePath("Input"));
             var baseMap = new Bitmap(UI.OpenFile());
             var resultMap = CreateNewMap(baseMap);
-            using (var stream = File.Create("Result.png"))
+            using (var stream = File.Create(UI.OpenFile()))
             {
                 resultMap.Save(stream, ImageFormat.Bmp);
             }
+            Console.WriteLine("Solution saved to file.");
         }
 
         private static Bitmap CreateNewMap(Bitmap baseMap)
